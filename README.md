@@ -33,7 +33,13 @@ Plan for next release:
 
 
 
-Features
+Features:
+
+
+
+
+
+
 Essential Packages Installation: The script begins by updating the system package lists. It then checks and installs several necessary software packages to facilitate the creation and functionality of the kiosk system.
 
 
