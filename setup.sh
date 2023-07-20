@@ -46,7 +46,6 @@ def check_password():
         url_label.grid(row=0, column=0)
         url_entry.grid(row=0, column=1)
         save_button.grid(row=1, column=0)
-        unlock_button.grid(row=1, column=1)
 
 def save_changes():
     new_url = url_entry.get()
@@ -68,11 +67,6 @@ def save_changes():
 
     messagebox.showinfo("Uspešno", "URL uspešno posodobljen!")
 
-def unlock_system():
-    # Kill all Chromium processes
-    os.system('pkill chromium-browser')
-    messagebox.showinfo("Uspešno", "Sistem odklenjen! Chromium je bil ustavljen.")
-
 root = tk.Tk()
 
 password_label = tk.Label(root, text="Geslo:")
@@ -86,7 +80,6 @@ password_button.grid(row=1, columnspan=2)
 url_label = tk.Label(root, text="Vnesi URL:")
 url_entry = tk.Entry(root)
 save_button = tk.Button(root, text="Shrani spremembe", command=save_changes)
-unlock_button = tk.Button(root, text="Zapri KIOSK", command=unlock_system)
 
 root.mainloop()
 EOF
