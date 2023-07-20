@@ -1,6 +1,7 @@
 # picakiosk
 
-Usage
+Usage:
+                                                               
 This script is intended to be run on a freshly installed Ubuntu 22.04 LTS system for setting up a dedicated kiosk system. It can be adjusted and modified to work with other versions of Ubuntu or different Linux distributions. The kiosk system it creates is ideal for use in a range of applications such as public information points, digital signage, or any other situation where you need to display specific web content in a controlled manner.
 
 It uses chromium-browser for the main browser. It uses a python script to run the GUI. 
@@ -23,6 +24,8 @@ In KIOSK.SH you can change your password for the GUI.
 
 
 Plan for next release:
+
+            
 -improving the passwword system so that verification is not basic
 -improving the manual setup to automatic setup for keyboard shortcut and startup applications entry
 
@@ -31,7 +34,18 @@ Plan for next release:
 
 
 Features
-Essential Packages Installation: The script begins by updating the system package lists. It then checks and installs several necessary software packages to facilitate the creation and functionality of the kiosk system. These packages include:
+Essential Packages Installation: The script begins by updating the system package lists. It then checks and installs several necessary software packages to facilitate the creation and functionality of the kiosk system.
+
+
+
+
+
+
+
+
+
+  
+These packages include:
 
 chromium-browser: The open-source version of Google Chrome, used for the web-based kiosk system.
 
