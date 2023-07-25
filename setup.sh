@@ -16,7 +16,7 @@ sudo apt-get update
 sudo apt-get install anydesk
 
 # Save Python script to a file
-cat > kiosk.py <<EOF
+cat > /home/spica/kiosk.py <<EOF
 #!/usr/bin/env python3
 import tkinter as tk
 from tkinter import messagebox
@@ -73,7 +73,7 @@ root.mainloop()
 EOF
 
 # Save Bash script to a file
-cat > kiosk.sh <<EOF
+cat > /home/spica/kiosk.sh <<EOF
 #!/bin/bash
 while true; do
     if ! pgrep chromium-browser > /dev/null; then
@@ -84,4 +84,4 @@ done
 EOF
 
 # Make Python and Bash scripts executable
-chmod +x kiosk.py kiosk.sh
+chmod +x /home/spica/kiosk.py /home/spica/kiosk.sh
