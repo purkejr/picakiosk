@@ -6,8 +6,8 @@ sudo apt-get update
 # Install necessary packages
 sudo apt-get install -y python3-pip chromium-browser xdotool
 
-# Install Tkinter for Python
-pip3 install python-tk
+# Install Tkinter for Python3
+sudo apt-get install -y python3-tk
 
 # Install Anydesk
 wget -qO- https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
@@ -17,6 +17,7 @@ sudo apt-get install anydesk
 
 # Save Python script to a file
 cat > kiosk.py <<EOF
+#!/usr/bin/env python3
 import tkinter as tk
 from tkinter import messagebox
 import os
@@ -82,8 +83,5 @@ while true; do
 done
 EOF
 
-# Make Bash script executable
-chmod +x kiosk.sh
-
-# Run Python script
-python3 kiosk.py &
+# Make Python and Bash scripts executable
+chmod +x kiosk.py kiosk.sh
