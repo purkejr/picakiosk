@@ -1,32 +1,3 @@
-#!/bin/bash
-
-# Install necessary packages
-sudo apt-get update
-sudo apt-get install -y chromium-browser xdotool x11-utils unclutter python3-tk
-command -v git >/dev/null 2>&1 || { echo >&2 "Installing Git..."; sudo apt-get install -y git; }
-
-# Install AnyDesk
-wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
-echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
-sudo apt update
-sudo apt install anydesk
-
-# Create the kiosk.sh file
-cat << EOF > /home/spica/kiosk.sh
-#!/bin/bash
-while true; do
-    if ! pgrep chromium-browser > /dev/null; then
-        /usr/bin/chromium-browser --noerrdialogs --kiosk http://timespace.spica.com
-    fi
-    sleep 1s
-done
-EOF
-
-# Make the kiosk.sh file executable
-chmod +x /home/spica/kiosk.sh
-
-# Create the kiosk_gui.py file
-cat << EOF > /home/spica/kiosk_gui.py
 import tkinter as tk
 from tkinter import messagebox
 import os
@@ -58,7 +29,7 @@ def save_changes():
     # Find the line that starts with "/usr/bin/chromium-browser" and change the URL
     for i in range(len(lines)):
         if lines[i].startswith("/usr/bin/chromium-browser"):
-            lines[i] = "/usr/bin/chromium-browser --noerrdialogs --kiosk " + new_url + "\\n"
+            lines[i] = f"/usr/bin/chromium-browser --kiosk {new_url}\n"
             break
 
     # Write the modified lines back to the file
@@ -82,7 +53,3 @@ url_entry = tk.Entry(root)
 save_button = tk.Button(root, text="Shrani spremembe", command=save_changes)
 
 root.mainloop()
-EOF
-
-# Make the kiosk_gui.py file executable
-chmod +x /home/spica/kiosk_gui.py
