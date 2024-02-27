@@ -1,0 +1,19 @@
+sudo apt install git 
+
+git clone https://github.com/purkejr/kiosksetup
+
+cd picakiosk
+
+bash setup.sh
+
+pip3 install --upgrade gnome-extensions-cli
+
+reboot
+
+gext install 4049 
+
+bash configure.sh 
+
+python3 ~/kiosksetup/set_customshortcut.py 'open kiosk' 'python3 kiosk.py' '<Alt>c'
+
+reboot
