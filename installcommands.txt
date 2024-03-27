@@ -14,6 +14,6 @@ gext install 4049
 
 bash configure.sh 
 
-python3 ~/kiosksetup/set_customshortcut.py 'open kiosk' 'python3 kiosk.py' '<Alt>c'
+python3 ~/picakiosk/set_customshortcut.py 'open kiosk' 'python3 kiosk.py' '<Alt>c'
 
 reboot
