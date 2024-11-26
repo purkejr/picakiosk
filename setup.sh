@@ -77,7 +77,7 @@ cat > /home/spica/kiosk.sh <<EOF
 #!/bin/bash
 while true; do
     if ! pgrep chromium-browser > /dev/null; then
-        /usr/bin/chromium-browser --noerrdialogs --kiosk https://google.com
+        /usr/bin/chromium-browser --ignore-certificate-errors --noerrdialogs --kiosk https://google.com
     fi
     sleep 1s
 done
